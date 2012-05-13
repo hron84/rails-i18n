@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "I18n backend reloading" do
+describe "I18n backend reloading", :unless => defined?(JRUBY_VERSION) do
   let(:app) do
     RailsI18n::Spec::FakeApp
   end

@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe "Translation" do
+describe "Translation", :unless => defined?(JRUBY_VERSION) do
 
   let(:app) do
     RailsI18n::Spec::FakeApp

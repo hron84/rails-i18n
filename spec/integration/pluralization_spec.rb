@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe "Pluralization" do
+describe "Pluralization", :unless => defined?(JRUBY_VERSION) do
 
   let(:app) do
     RailsI18n::Spec::FakeApp

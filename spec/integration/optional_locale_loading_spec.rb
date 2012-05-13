@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe "Rails-i18n" do
+describe "Rails-i18n", :unless => defined?(JRUBY_VERSION) do
   let(:app) do
     RailsI18n::Spec::FakeApp
   end

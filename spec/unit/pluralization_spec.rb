@@ -8,6 +8,7 @@ require 'spec_helper'
 require 'support/pluralization_file'
 
 require 'unit/pluralization/ordinary'
+require 'unit/pluralization/one'
 require 'unit/pluralization/other'
 require 'unit/pluralization/one_with_zero_other'
 require 'unit/pluralization/one_upto_two_other'
@@ -282,7 +283,7 @@ describe 'Pluralization rule for' do
 
   describe 'Hungarian', :locale => :hu do
     it_behaves_like 'an ordinary pluralization rule'
-    it_behaves_like 'other form language'
+    it_behaves_like 'one form language'
   end
 
   describe 'Odiya', :locale => :or do

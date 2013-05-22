@@ -3,25 +3,25 @@ el:
     abbr_day_names:
     - Κυρ
     - Δευ
-    - Τρι
+    - Τρί
     - Τετ
-    - Πεμ
+    - Πέμ
     - Παρ
-    - Σαβ
+    - Σάβ
     abbr_month_names:
     - 
-    - Ιαν.
-    - Φεβ.
-    - Μάρ.
-    - Απρ.
-    - Μαι.
-    - Ιουν.
-    - Ιούλ.
-    - Αυγ.
-    - Σεπ.
-    - Οκτ.
-    - Νοε.
-    - Δεκ.
+    - Ιαν
+    - Φεβ
+    - Μαρ
+    - Απρ
+    - Μαϊ
+    - Ιουν
+    - Ιουλ
+    - Αυγ
+    - Σεπ
+    - Οκτ
+    - Νοε
+    - Δεκ
     day_names:
     - Κυριακή
     - Δευτέρα
@@ -111,19 +111,25 @@ el:
       invalid: είναι άκυρο
       less_than: πρέπει να είναι λιγότερο από %{count}
       less_than_or_equal_to: πρέπει να είναι λιγότερο ή ίσο με %{count}
-      not_a_number: δεν είναι ένας αριθμός
+      not_a_number: δεν είναι αριθμός
       not_an_integer: πρέπει να είναι ακέραιος αριθμός
       odd: πρέπει να είναι περιττός
       record_invalid: ! 'Επικύρωση απέτυχε: %{errors}'
       taken: το έχουν ήδη χρησιμοποιήσει
-      too_long: είναι πολύ μεγάλο (το μέγιστο μήκος είναι %{count} χαρακτήρες)
-      too_short: είναι πολύ μικρό (το μικρότερο μήκος είναι %{count} χαρακτήρες)
-      wrong_length: έχει λανθασμένο μήκος (πρέπει να είναι %{count} χαρακτήρες)
+      too_long:
+        one: είναι πολύ μεγάλο (το μέγιστο μήκος είναι 1 χαρακτήρας)
+        other: είναι πολύ μεγάλο (το μέγιστο μήκος είναι %{count} χαρακτήρες)
+      too_short:
+        one: είναι πολύ μικρό (το ελάχιστο μήκος είναι 1 χαρακτήρας)
+        other: είναι πολύ μικρό (το ελάχιστο μήκος είναι %{count} χαρακτήρες)
+      wrong_length:
+        one: έχει λανθασμένο μήκος (πρέπει να είναι 1 χαρακτήρας)
+        other: έχει λανθασμένο μήκος (πρέπει να είναι %{count} χαρακτήρες)
     template:
       body: ! 'Υπήρξαν προβλήματα με τα ακόλουθα πεδία:'
       header:
-        one: 1 λάθος εμπόδισε αυτό το %{model} να αποθηκευθεί.
-        other: ! '%{count} λάθη εμπόδισαν αυτό το %{model} να αποθηκευθεί.'
+        one: 1 λάθος εμπόδισε αυτό το %{model} να αποθηκευτεί.
+        other: ! '%{count} λάθη εμπόδισαν αυτό το %{model} να αποθηκευτεί.'
   helpers:
     select:
       prompt: Παρακαλώ επιλέξτε
@@ -134,10 +140,10 @@ el:
   number:
     currency:
       format:
-        delimiter: ! ','
+        delimiter: .
         format: ! '%n %u'
         precision: 2
-        separator: .
+        separator: ! ','
         significant: false
         strip_insignificant_zeros: false
         unit: €
@@ -153,7 +159,7 @@ el:
         units:
           billion: δισεκατομμύριο
           million: εκατομμύριο
-          quadrillion: τετρακις εκατομμύριο
+          quadrillion: τετράκις εκατομμύριο
           thousand: χίλια
           trillion: τρισεκατομμύριο
           unit: ''
@@ -184,12 +190,12 @@ el:
       two_words_connector: ! ' και '
       words_connector: ! ', '
   time:
-    am: πμ
+    am: π.μ.
     formats:
       default: ! '%d %B %Y %H:%M'
       long: ! '%A %d %B %Y %H:%M:%S %Z'
       short: ! '%d %b %H:%M'
-    pm: μμ
+    pm: μ.μ.
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
     errors:

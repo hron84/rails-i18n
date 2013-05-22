@@ -8,7 +8,6 @@ require 'spec_helper'
 require 'support/pluralization_file'
 
 require 'unit/pluralization/ordinary'
-require 'unit/pluralization/one'
 require 'unit/pluralization/other'
 require 'unit/pluralization/one_with_zero_other'
 require 'unit/pluralization/one_upto_two_other'
@@ -283,7 +282,12 @@ describe 'Pluralization rule for' do
 
   describe 'Hungarian', :locale => :hu do
     it_behaves_like 'an ordinary pluralization rule'
-    it_behaves_like 'one form language'
+    it_behaves_like 'other form language'
+  end
+
+  describe 'Odiya', :locale => :or do
+    it_behaves_like 'an ordinary pluralization rule'
+    it_behaves_like 'one(with zero)-other forms language'
   end
 
   describe 'Igbo', :locale => :ig do
@@ -414,13 +418,9 @@ describe 'Pluralization rule for' do
   describe 'Latvian', :locale => :lv do
     it_behaves_like 'an ordinary pluralization rule'
 
-    it 'has "zero", "one" and "other" plural keys' do
-      plural_keys.size.should == 3
-      plural_keys.should include(:zero, :one, :other)
-    end
-
-    it "detects that 0 in category 'zero'" do
-      rule.call(0).should == :zero
+    it 'has "one" and "other" plural keys' do
+      plural_keys.size.should == 2
+      plural_keys.should include(:one, :other)
     end
 
     [1, 21, 31, 41, 51, 61, 101].each do |count|
@@ -429,7 +429,7 @@ describe 'Pluralization rule for' do
       end
     end
 
-    [0.4, 1.7, 2, 5, 10, 11, 20, 22, 37, 40, 111, 123].each do |count|
+    [0, 0.4, 1.7, 2, 5, 10, 11, 20, 22, 37, 40, 111, 123].each do |count|
       it "detects that #{count} in category 'other'" do
         rule.call(count).should == :other
       end
